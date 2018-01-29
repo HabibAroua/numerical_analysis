@@ -6,6 +6,8 @@ void remplir(int n , int M[15][15]);
 void afficher(int n , int M[15][15]);
 int nbZeroLigne(int n , int M[15][15] , int ligne );
 int nbZeroColonne(int n , int M[15][15] , int colonne);
+int rechercherLigne(int n , int M[15][15]);
+int rechercherColonne(int n , int M[15][15]);
 
 int main()
 {
@@ -15,8 +17,9 @@ int main()
     remplir(n,M);
     afficher(n,M);
     printf("\n");
-    printf("le nombre de zéro ligne est %d \n",nbZeroLigne(n,M,0));
-    printf("Le nombre de zéro colonne est %d \n",nbZeroColonne(n,M,0));
+    printf("la ligne est %d \n",rechercherLigne(n,M));
+    printf("la ligne est %d \n",rechercherColonne(n,M));
+    if((rechercherLigne(n,M))==n || (rechercherColonne(n,M))==n)
     return 0;
 }
 
@@ -83,4 +86,34 @@ int nbZeroColonne(int n , int M[15][15] , int colonne)
          }
      }
      return sum;
+}
+
+int rechercherLigne(int n , int M[15][15] )
+{
+   int i,indice;
+   int max=nbZeroLigne(n,M,1);
+   for(i=1 ; i<n ; i++ )
+   {
+       if(nbZeroLigne(n,M,i)>max)
+       {
+             max=nbZeroLigne(n,M,i);
+             indice=i;
+       }
+   }
+   return indice;
+}
+
+int rechercherColonne(int n , int M[15][15] )
+{
+   int i,indice;
+   int max=nbZeroColonne(n,M,1);
+   for(i=1 ; i<n ; i++ )
+   {
+       if(nbZeroColonne(n,M,i)>max)
+       {
+             max=nbZeroLigne(n,M,i);
+             indice=i;
+       }
+   }
+   return indice;
 }
