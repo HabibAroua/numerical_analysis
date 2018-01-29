@@ -4,6 +4,7 @@
 void saisie(int *n);
 void remplir(int n , int M[15][15]);
 void afficher(int n , int M[15][15]);
+int nbZeroLigne(int n , int M[15][15] , int ligne );
 
 int main()
 {
@@ -12,6 +13,8 @@ int main()
     saisie(&n);
     remplir(n,M);
     afficher(n,M);
+    printf("\n");
+    printf("le nombre de zéro est %d \n",nbZeroLigne(n,M,0));
     return 0;
 }
 
@@ -50,4 +53,18 @@ void afficher(int n , int M[15][15])
           }
           printf("\n");
      }
+}
+
+int nbZeroLigne(int n , int M[15][15] , int ligne)
+{
+     int i;
+     int sum=0;
+     for(i=0 ; i<n ; i++)
+     {
+        if(M[ligne][i]==0)
+         {
+              sum++;
+         }
+     }
+     return sum;
 }
