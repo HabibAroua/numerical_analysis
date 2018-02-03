@@ -8,18 +8,28 @@ int nbZeroLigne(int n , int M[15][15] , int ligne );
 int nbZeroColonne(int n , int M[15][15] , int colonne);
 int rechercherLigne(int n , int M[15][15]);
 int rechercherColonne(int n , int M[15][15]);
+int verifInversibleLigne(int n , int M[15][15]);
+int verifInversibleColone(int n , int M[15][15]);
 
 int main()
 {
     int M[15][15];
-    int n;
+    int n,i,j;
     saisie(&n);
     remplir(n,M);
     afficher(n,M);
     printf("\n");
-    printf("la ligne est %d \n",rechercherLigne(n,M));
-    printf("la ligne est %d \n",rechercherColonne(n,M));
-    if((rechercherLigne(n,M))==n || (rechercherColonne(n,M))==n)
+    printf("\n");
+    if((verifInversibleLigne(n,M)==1) || (verifInversibleColone(n,M)==1))
+    {
+         printf("La matrice est inversible \n");
+    }
+    else
+    {
+        printf("la ligne est %d \n",rechercherLigne(n,M)+1);
+        printf("la colonne est %d \n",rechercherColonne(n,M)+1);
+    }
+
     return 0;
 }
 
@@ -90,8 +100,8 @@ int nbZeroColonne(int n , int M[15][15] , int colonne)
 
 int rechercherLigne(int n , int M[15][15] )
 {
-   int i,indice;
-   int max=nbZeroLigne(n,M,1);
+   int i,indice=0;
+   int max=nbZeroLigne(n,M,0);
    for(i=1 ; i<n ; i++ )
    {
        if(nbZeroLigne(n,M,i)>max)
@@ -105,15 +115,51 @@ int rechercherLigne(int n , int M[15][15] )
 
 int rechercherColonne(int n , int M[15][15] )
 {
-   int i,indice;
-   int max=nbZeroColonne(n,M,1);
+   int i,indice=0;
+   int max=nbZeroColonne(n,M,0);
    for(i=1 ; i<n ; i++ )
    {
        if(nbZeroColonne(n,M,i)>max)
        {
-             max=nbZeroLigne(n,M,i);
+             max=nbZeroColonne(n,M,i);
              indice=i;
        }
    }
    return indice;
+}
+
+int verifInversibleLigne(int n , int M[15][15])
+{
+   int test,i;
+   for(i=0 ; i<n ; i++ )
+   {
+       if(nbZeroLigne(n,M,i)==n)
+       {
+            test=1;
+            break;
+       }
+       else
+       {
+            test=0;
+       }
+    }
+    return test;
+}
+
+int verifInversibleColone(int n , int M[15][15])
+{
+   int test,i;
+   for(i=0 ; i<n ; i++ )
+   {
+       if(nbZeroColonne(n,M,i)==n)
+       {
+            test=1;
+            break;
+       }
+       else
+       {
+            test=0;
+       }
+   }
+   return test;
 }
