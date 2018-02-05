@@ -11,7 +11,7 @@ int rechercherColonne(int n , int M[15][15]);
 int verifInversibleLigne(int n , int M[15][15]);
 int verifInversibleColone(int n , int M[15][15]);
 
-int main()
+int main(void)
 {
     int M[15][15];
     int n,i,j;
@@ -81,6 +81,7 @@ int nbZeroLigne(int n , int M[15][15] , int ligne)
               sum++;
          }
      }
+
      return sum;
 }
 
@@ -95,7 +96,7 @@ int nbZeroColonne(int n , int M[15][15] , int colonne)
               sum++;
          }
      }
-     return sum;
+    return sum;
 }
 
 int rechercherLigne(int n , int M[15][15] )
@@ -110,6 +111,8 @@ int rechercherLigne(int n , int M[15][15] )
              indice=i;
        }
    }
+   printf("\n");
+   printf("Le max de zéro dans la ligne est %d \n",max);
    return indice;
 }
 
@@ -125,6 +128,8 @@ int rechercherColonne(int n , int M[15][15] )
              indice=i;
        }
    }
+   printf("\n");
+   printf("Le max de zéro dans la colonne est %d \n",max);
    return indice;
 }
 
