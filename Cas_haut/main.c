@@ -33,7 +33,7 @@ void saisie(int *n)
     *n=x;
 }
 
-void remplirA(int n , int A[100][100])
+void remplirA(int n , float A[100][100])
 {
      int i,j;
      for(i=0 ; i<n ; i++)
@@ -46,7 +46,7 @@ void remplirA(int n , int A[100][100])
      }
 }
 
-void remplirB(int n , int B[100])
+void remplirB(int n , float B[100])
 {
     int i;
     for(i=0 ; i<n ; i++)
