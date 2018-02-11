@@ -2,10 +2,10 @@
 #include <stdlib.h>
 
 void saisie(int *n);
-void remplirA(int n , int A[100][100]);
-void remplirB(int n , int B[100]);
-void AfficherA(int n , int A[100][100]);
-void AfficherB(int n , int B[100]);
+void remplirA(int n , float A[100][100]);
+void remplirB(int n , float B[100]);
+void AfficherA(int n , float A[100][100]);
+void AfficherB(int n , float B[100]);
 
 int main()
 {
@@ -17,6 +17,8 @@ int main()
     AfficherA(n,A);
     printf("\n");
     AfficherB(n,B);
+    printf("\n");
+
     return 0;
 }
 
@@ -54,24 +56,24 @@ void remplirB(int n , int B[100])
     }
 }
 
-void AfficherA(int n , int A[100][100])
+void AfficherA(int n , float A[100][100])
 {
     int i,j;
     for(i=0 ; i<n ; i++)
     {
         for(j=0 ; j<n ; j++)
         {
-            printf("%d ",A[i][j]);
+            printf("%f ",A[i][j]);
         }
         printf("\n");
     }
 }
 
-void AfficherB(int n , int B[100])
+void AfficherB(int n , float B[100])
 {
     int i;
     for(i=0 ; i<n ; i++)
     {
-        printf("%d ",B[i]);
+        printf("%f ",B[i]);
     }
 }
