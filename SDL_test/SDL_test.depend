@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1517945219 source:/home/habib/Documents/numerical_analysis/SDL_test/main.c
+	<stdio.h>
+	<stdlib.h>
+	<SDL/SDL.h>
+

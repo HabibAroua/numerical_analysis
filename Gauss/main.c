@@ -4,6 +4,7 @@
 void saisie(int *n);
 void remplir(int n , int M[100][100]);
 void affiche(int n , int M[100][100]);
+void Gauss(int n , int M[100][100]);
 
 int main()
 {
