@@ -2,19 +2,27 @@
 #include <stdlib.h>
 
 void saisie(int *n);
-void remplir(int n , int M[100][100]);
-void bR(int n , int b[100]);
-void affiche(int n , int M[100][100]);
-void Gauss(int n , int M[100][100] , int b[100]);
+void remplir(int n , float M[100][100]);
+void bR(int n , float b[100]);
+void affiche(int n , float M[100][100]);
+void afficheX(int n , float X[100]);
+void Gauss(int n , float M[100][100] , float b[100] , float X[100]);
 
 int main()
 {
     int n;
-    int M[100][100],b[100];
+    float M[100][100],b[100],X[100];
+    //pour lire n M et b
     saisie(&n);
     remplir(n,M);
     bR(n,b);
     affiche(n,M);
+    printf("\n");
+
+
+    Gauss(n,M,b,X);
+    printf("\n");
+    afficheX(n,X);
 
     return 0;
 }
@@ -26,69 +34,100 @@ void saisie(int *n)
     {
         printf("Donner la taille de la matrice \n");
         scanf("%d",&x);
-    }while(x<3);
+    }while(x<2);
     *n=x;
 }
 
-void remplir(int n , int M[100][100])
+void remplir(int n , float M[100][100])
 {
     int i,j;
     for(i=0 ; i<n ; i++)
     {
-        for(j=0 ; j<i ; j++)
+        for(j=0 ; j<n ; j++)
         {
              printf("Tapez la ligne %d et la colonne %d \n",i,j);
-             scanf("%d",&M[i][j]);
+             scanf("%f",&M[i][j]);
         }
     }
 }
 
-void bR(int n , int b[100])
+void bR(int n , float b[100])
 {
+    int i;
+    for(i=0 ; i<n ;i++)
+    {
+        printf("Donner X%d \n",i+1);
+        scanf("%f",&b[i]);
+    }
 }
 
-void affiche(int n , int M[100][100])
+void affiche(int n , float M[100][100])
 {
     int i,j;
     for(i=0 ; i<n ; i++)
     {
-         for(j=0 ; j<i ; j++)
+         for(j=0 ; j<n ; j++)
          {
-             printf("%d ",M[i][j]);
+             printf("%f ",M[i][j]);
          }
          printf("\n");
     }
 }
 
-void Gauss(int n , int M[100][100] , int b[100])
+void Gauss(int n , float M[100][100] , float b[100] , float X[100])
 {
-   int i,j,aux,indice;
-   int compt;
-   for(i=0 ; i<n-1 ; i++)
-   {
-       while(M[compt][i]==0)
-       {
-            compt++;
-       }
-       for(j=0 ; j<n ; j++)
-       {
-            aux=M[i][j];
-            M[i][j]=M[compt][j];
-            M[compt][j]=aux;
-       }
-       aux=b[i];
-       b[i]=b[compt];
-       b[compt]=aux;
+   int r,i,j,compte;
+   float aux,m;
 
-       for(indice=compt+1 ; compt<n ; indice++)
+   for(r=0 ; r<n-1 ; r++)
+   {
+       compte=r;
+       while(M[compte][r]==0)
        {
-           for(j=i ; j<n ; j++)
-           {
-                M[i][j]=M[i][j]-(M[indice][i]*M[i][j]/M[i][i]);
-           }
-           b[i]=b[i]-(b[indice]*b[bi]/M[i][i]);
-           M[indice][i]=0;
+            compte++;
        }
+       for(j=r ; j<n ; j++)
+       {
+           aux=M[r][j];
+           M[r][j]=M[compte][j];
+           M[compte][j]=aux;
+       }
+       aux=b[r];
+       b[r]=b[compte];
+       b[compte]=aux;
+
+       for(i=compte+1 ; i<n ; i++)
+       {
+            m=M[i][r]/M[r][r];
+            for(j=r+1 ; j<n ; j++)
+            {
+                 M[i][j]=M[i][j]-m*M[r][j];
+            }
+            b[i]=b[i]-m*b[r];
+            M[i][r]=0;
+       }
+       affiche(n,M);
+       printf("\n");
    }
-   int X[100];
+
+   X[n-1]=b[n-1]/M[n-1][n-1];
+   for(i=n-2 ; i>=0 ; i--)
+   {
+       X[i]=b[i];
+       for(j=i+1 ; j<n ; j++)
+       {
+           X[i]=X[i]-M[i][j]*X[j];
+       }
+       X[i]=X[i]/M[i][i];
+   }
+
+}
+
+void afficheX(int n , float X[100])
+{
+    int i;
+    for(i=0 ; i<n ; i++)
+    {
+         printf("X(%d)= %f \n ",i+1,X[i]);
+    }
 }
