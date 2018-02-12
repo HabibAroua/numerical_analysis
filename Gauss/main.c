@@ -3,10 +3,10 @@
 
 void saisie(int *n);
 void remplir(int n , float M[100][100]);
-void bR(int n , float b[100]);
+void bR(int n , float *b);
 void affiche(int n , float M[100][100]);
 void afficheX(int n , float X[100]);
-void Gauss(int n , float M[100][100] , float b[100] , float X[100]);
+void Gauss(int n , float M[100][100] , float b[100] , float *X);
 
 int main()
 {
@@ -45,7 +45,7 @@ void remplir(int n , float M[100][100])
     {
         for(j=0 ; j<n ; j++)
         {
-             printf("Tapez la ligne %d et la colonne %d \n",i,j);
+             printf("Tapez la ligne %d et la colonne %d \n",i+1,j+1);
              scanf("%f",&M[i][j]);
         }
     }
