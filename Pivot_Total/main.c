@@ -7,6 +7,7 @@ void bR(int n , float *b);
 void affiche(int n , float M[100][100]);
 void afficheX(int n , float X[100]);
 void Pivot_total(int n , float M[100][100] , float b[100] , float *X);
+float abc(float n);
 
 int main()
 {
@@ -76,7 +77,8 @@ void affiche(int n , float M[100][100])
 
 void Pivot_total(int n , float M[100][100] , float b[100] , float X[100])
 {
-    int i,r;
+    int i,r,l,c,j;
+    float max;
     int v[100];
     for (i=0 ; i<n ; i++)
     {
@@ -85,11 +87,35 @@ void Pivot_total(int n , float M[100][100] , float b[100] , float X[100])
 
     for(r=0 ; r<n-1 ; r++)
     {
+        max=0;
+        l=0;
+        c=0;
+
+        for(i=r ; i<n ; i++)
+        {
+             for(j=r ; j<n ; j++)
+             {
+                  if(abc(M[i][j])>max)
+                  {
+                  }
+             }
+        }
 
     }
 }
 
-
+float abc(float n)
+{
+    if(n<0)
+    {
+         n*=-1;
+         return n;
+    }
+    else
+    {
+         return n;
+    }
+}
 
 
 void afficheX(int n , float X[100])
