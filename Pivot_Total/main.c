@@ -6,7 +6,7 @@ void remplir(int n , float M[100][100]);
 void bR(int n , float *b);
 void affiche(int n , float M[100][100]);
 void afficheX(int n , float X[100]);
-void Gauss(int n , float M[100][100] , float b[100] , float *X);
+void Pivot_total(int n , float M[100][100] , float b[100] , float *X);
 
 int main()
 {
@@ -20,7 +20,7 @@ int main()
     printf("\n");
 
 
-    Gauss(n,M,b,X);
+    Pivot_total(n,M,b,X);
     printf("\n");
     afficheX(n,X);
 
@@ -74,7 +74,7 @@ void affiche(int n , float M[100][100])
     }
 }
 
-void Gauss(int n , float M[100][100] , float b[100] , float X[100])
+void Pivot_total(int n , float M[100][100] , float b[100] , float X[100])
 {
    int r,i,j,compte;
    float aux,m;
