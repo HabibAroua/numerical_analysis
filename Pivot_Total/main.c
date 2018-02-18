@@ -8,6 +8,7 @@ void affiche(int n , float M[100][100]);
 void afficheX(int n , float X[100]);
 void Pivot_total(int n , float M[100][100] , float b[100] , float *X);
 float abc(float n);
+void permuterFloat(float x , float y);
 
 int main()
 {
@@ -77,8 +78,8 @@ void affiche(int n , float M[100][100])
 
 void Pivot_total(int n , float M[100][100] , float b[100] , float X[100])
 {
-    int i,r,l,c,j;
-    float max,aux;
+    int i,r,l,c,j,indice;
+    float max,aux,I;
     int v[100];
     for (i=0 ; i<n ; i++)
     {
@@ -105,8 +106,20 @@ void Pivot_total(int n , float M[100][100] , float b[100] , float X[100])
         }
         for(j=r ; j<n ; j++)
         {
-
+             aux=M[i][j];
+             M[r][j]=M[l][j];
+             M[l][j]=aux;
         }
+        I=b[r];
+        b[r]=b[l];
+        b[l]=I;
+        for(i=0 ; i<n ; i++)
+        {
+            aux=M[i][r];
+            M[i][r]=M[i][c];
+            M[i][c]=aux;
+        }
+
     }
 }
 
@@ -131,4 +144,11 @@ void afficheX(int n , float X[100])
     {
          printf("X(%d)= %f \n ",i+1,X[i]);
     }
+}
+
+void permuterFloat(float x , float y)
+{
+    int aux=x;
+    x=y;
+    y=aux;
 }
