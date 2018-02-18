@@ -76,39 +76,15 @@ void affiche(int n , float M[100][100])
 
 void Pivot_total(int n , float M[100][100] , float b[100] , float X[100])
 {
-   int r,i,j,compte;
-   float aux,m;
+    int i,r;
+    int v[100];
+    for (i=0 ; i<n ; i++)
+    {
+         v[i]=i;
+    }
 
-   for(r=0 ; r<n-1 ; r++)
-   {
-       compte=r;
-       while(M[compte][r]==0)
-       {
-            compte++;
-       }
-       for(j=r ; j<n ; j++)
-       {
-           aux=M[r][j];
-           M[r][j]=M[compte][j];
-           M[compte][j]=aux;
-       }
-       aux=b[r];
-       b[r]=b[compte];
-       b[compte]=aux;
-
-       for(i=compte+1 ; i<n ; i++)
-       {
-            m=M[i][r]/M[r][r];
-            for(j=r+1 ; j<n ; j++)
-            {
-                 M[i][j]=M[i][j]-m*M[r][j];
-            }
-            b[i]=b[i]-m*b[r];
-            M[i][r]=0;
-       }
-       affiche(n,M);
-       printf("\n");
-   }
+    for
+}
 
    X[n-1]=b[n-1]/M[n-1][n-1];
    for(i=n-2 ; i>=0 ; i--)
