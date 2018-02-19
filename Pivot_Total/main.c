@@ -78,8 +78,8 @@ void affiche(int n , float M[100][100])
 
 void Pivot_total(int n , float M[100][100] , float b[100] , float X[100])
 {
-    int i,r,l,c,j,indice;
-    float max,aux,I;
+    int i,r,l,c,j,indice,compt;
+    float max,aux,I,m;
     int v[100];
     for (i=0 ; i<n ; i++)
     {
@@ -119,7 +119,30 @@ void Pivot_total(int n , float M[100][100] , float b[100] , float X[100])
             M[i][r]=M[i][c];
             M[i][c]=aux;
         }
-
+        indice=v[r];
+        v[r]=v[c];
+        v[c]=indice;
+        for(i=compt+1 ; i<n ; i++)
+        {
+            m=M[i][r]/M[r][r];
+            for(j=r+1 ; j<n ; j++)
+            {
+               M[i][j]=M[i][j]-(m*M[r][j]);
+            }
+            b[i]-=(m*b[r]);
+            M[i][r]=0;
+            affiche(n,M);
+        }
+    }
+    X[v[n]]=b[n]/M[n][n];
+    for(i=n-2 ; i>=0 ; i--)
+    {
+       X[i]=b[i];
+       for(j=i+1 ; j<n ; j++)
+       {
+           X[i]=X[i]-M[i][j]*X[j];
+       }
+       X[V[i]]=X[V[i]]/M[i][i];
     }
 }
 
