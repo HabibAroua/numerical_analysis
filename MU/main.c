@@ -5,6 +5,7 @@ void saisie(int *n);
 void remplir(int n , float A[100][100]);
 void LU(int n , float A[100][100]);
 void affichier(int n , float A[100][100]);
+float sum();
 
 int main()
 {
@@ -43,7 +44,18 @@ void remplir(int n , float A[100][100])
 
 void LU(int n , float A[100][100])
 {
-
+    int i,j,k;
+    int P[100];
+    float pivot;
+    for(i=0 ; i<n ; i++)
+    {
+        P[i]=i;
+    }
+    for(i=0 ; i<n-1 ;i++)
+    {
+        k=i;
+        //while(pivot=)
+    }
 }
 
 void affichier(int n , float A[100][100])
@@ -58,3 +70,4 @@ void affichier(int n , float A[100][100])
          printf("\n");
     }
 }
+
