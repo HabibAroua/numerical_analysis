@@ -17,11 +17,12 @@ void saisie(int *n)
      do
      {
          printf("Donner la taille de la matrice \n");
-         scanf("%d")
-     }
+         scanf("%d",&x);
+     }while(x<2);
+     *n=x;
 }
 
-void remplir(float n , int A[100][100])
+void remplir(int n , float A[100][100])
 {
 
 }
