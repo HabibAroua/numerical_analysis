@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1519555865 source:/home/habib/Documents/numerical_analysis/Pivot_Total/Pivot_Sol2/main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+

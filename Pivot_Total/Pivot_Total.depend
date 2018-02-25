@@ -1,5 +1,6 @@
 # depslib dependency file v1.0
-1519043859 source:/home/habib/Documents/numerical_analysis/Pivot_Total/main.c
+1519560675 source:/home/habib/Documents/numerical_analysis/Pivot_Total/main.c
 	<stdio.h>
 	<stdlib.h>
+	<math.h>
 

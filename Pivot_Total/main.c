@@ -135,10 +135,10 @@ void Pivot_total(int n , float M[100][100] , float b[100] , float X[100])
         }
         affiche(n,M);
     }
-    X[v[n-1]]=b[n-1]/M[n-1][n-1];
-    for(i=n-2 ; i>=0 ; i--)
+    X[v[n]-1]=b[v[n]-1]/M[n-1][n-1];
+    for(i=n-1 ; i>=0 ; i--)
     {
-       X[i]=b[i];
+       X[v[i]]=b[i];
        for(j=i+1 ; j<n ; j++)
        {
            X[v[i]]=X[v[i]]-M[i][j]*X[v[j]];
