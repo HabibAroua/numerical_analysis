@@ -8,6 +8,11 @@ void affichier(int n , float A[100][100]);
 
 int main()
 {
+    int n;
+    float A[100][100];
+    saisie(&n);
+    remplir(n,A);
+    affichier(n,A);
 
     return 0;
 }
@@ -31,6 +36,7 @@ void remplir(int n , float A[100][100])
         for(j=0 ; j<n ; j++)
         {
             printf("A[%d][%d]=\n",i+1,j+1);
+            scanf("%f",&A[i][j]);
         }
     }
 }
@@ -42,5 +48,13 @@ void LU(int n , float A[100][100])
 
 void affichier(int n , float A[100][100])
 {
-
+    int i,j;
+    for(i=0 ; i<n ; i++)
+    {
+         for(j=0 ; j<n ; j++)
+         {
+               printf("%f ",A[i][j]);
+         }
+         printf("\n");
+    }
 }
