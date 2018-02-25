@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 void saisie(int *n);
 void remplir(int n , float M[100][100]);
@@ -7,7 +8,7 @@ void bR(int n , float *b);
 void affiche(int n , float M[100][100]);
 void afficheX(int n , float X[100]);
 void Pivot_total(int n , float M[100][100] , float b[100] , float *X);
-float abc(float n);
+float absF(float n);
 void permuterFloat(float x , float y);
 
 int main()
@@ -96,9 +97,9 @@ void Pivot_total(int n , float M[100][100] , float b[100] , float X[100])
         {
              for(j=r ; j<n ; j++)
              {
-                  if(abc(M[i][j])>max)
+                  if(abs(M[i][j])>max)
                   {
-                       max=abc(M[i][j]);
+                       max=abs(M[i][j]);
                        l=i;
                        c=j;
                   }
@@ -106,7 +107,7 @@ void Pivot_total(int n , float M[100][100] , float b[100] , float X[100])
         }
         for(j=r ; j<n ; j++)
         {
-             aux=M[i][j];
+             aux=M[r][j];
              M[r][j]=M[l][j];
              M[l][j]=aux;
         }
@@ -129,24 +130,24 @@ void Pivot_total(int n , float M[100][100] , float b[100] , float X[100])
             {
                M[i][j]=M[i][j]-(m*M[r][j]);
             }
-            b[i]-=(m*b[r]);
+            b[i]=b[i]-(m*b[r]);
             M[i][r]=0;
-            affiche(n,M);
         }
+        affiche(n,M);
     }
-    X[v[n]]=b[n]/M[n][n];
+    X[v[n-1]]=b[n-1]/M[n-1][n-1];
     for(i=n-2 ; i>=0 ; i--)
     {
        X[i]=b[i];
        for(j=i+1 ; j<n ; j++)
        {
-           X[i]=X[i]-M[i][j]*X[j];
+           X[v[i]]=X[v[i]]-M[i][j]*X[v[j]];
        }
-       X[V[i]]=X[V[i]]/M[i][i];
+       X[v[i]]=X[v[i]]-(M[i][j]*X[v[j]]);
     }
 }
 
-float abc(float n)
+float absF(float n)
 {
     if(n<0)
     {
