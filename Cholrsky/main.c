@@ -3,6 +3,7 @@
 
 void saisie(int *n);
 void remplir(int n , float M[100][100]);
+void afficher(int n , float M[100][100]);
 
 int main()
 {
@@ -32,4 +33,17 @@ void remplir(int n , float M[100][100])
               scanf("%f",&M[i][j]);
           }
      }
+}
+
+void afficher(int n , float M[100][100])
+{
+      int i,j;
+      for(i=0 ; i<n ; i++)
+      {
+           for(j=0 ; j<n ; j++)
+           {
+                printf("%f ");
+           }
+           printf("\n");
+      }
 }
