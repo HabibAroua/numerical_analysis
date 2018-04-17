@@ -7,6 +7,11 @@ void afficher(int n , float M[100][100]);
 
 int main()
 {
+    float M[100][100];
+    int n;
+    saisie(&n);
+    remplir(n,M);
+    afficher(n,M);
 
     return 0;
 }
@@ -29,7 +34,7 @@ void remplir(int n , float M[100][100])
      {
           for(j=0 ; j<n ; j++)
           {
-              printf("M[%d][%d]=");
+              printf("M[%d][%d]=",j,j);
               scanf("%f",&M[i][j]);
           }
      }
@@ -42,7 +47,7 @@ void afficher(int n , float M[100][100])
       {
            for(j=0 ; j<n ; j++)
            {
-                printf("%f ");
+                printf("%f ",M[i][j]);
            }
            printf("\n");
       }
