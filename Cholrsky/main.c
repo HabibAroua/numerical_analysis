@@ -6,7 +6,7 @@ void remplir(int n , float M[100][100]);
 
 int main()
 {
-    printf("Hello world!\n");
+
     return 0;
 }
 
@@ -19,4 +19,17 @@ void saisie(int *n)
          scanf("%d",&x);
     }while(x<2);
     *n=x;
+}
+
+void remplir(int n , float M[100][100])
+{
+     int i,j;
+     for(i=0 ; i<n ; i++)
+     {
+          for(j=0 ; j<n ; j++)
+          {
+              printf("M[%d][%d]=");
+              scanf("%f",&M[i][j]);
+          }
+     }
 }
