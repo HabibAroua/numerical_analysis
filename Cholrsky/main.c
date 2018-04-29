@@ -14,6 +14,9 @@ int main()
     saisie(&n);
     remplir(n,M);
     afficher(n,M);
+    cholesky(n,M);
+    printf("NEw affichage \n");
+    afficher(n,M);
 
     return 0;
 }
@@ -60,17 +63,20 @@ void cholesky(int n , float M[100][100])
     int i,j,k;
     for(i=0 ; i<n-1 ; i++)
     {
-        for(k=0 ; k<i-1 ; k++)
+        for(k=0 ; k<i-1 ; k++) //increment k
         {
              M[i][i]=sqrt(M[i][i]-M[i][k]*M[i][k]);
         }
         for(j=i+1 ; j<n ; j++)
         {
-             for(k=0 ; k<i-1 ; k++)
+             for(k=0 ; k<i-1 ; k++) //increment k
              {
                   M[j][i]=(M[j][i]-(M[j][k]*M[i][k]))/M[i][i];
              }
         }
     }
-    M[n-1][n-1]=sqrt(M[n-1][n-1]-(M[n][k]*M[n][k]));
+    for(k=0 ; k<n-1 ; k++) //increment k
+    {
+         M[n-1][n-1]=sqrt(M[n-1][n-1]-(M[n][k]*M[n][k]));
+    }
 }

@@ -1,5 +1,6 @@
 # depslib dependency file v1.0
-1523996257 source:/home/habib/Documents/numerical_analysis/Cholrsky/main.c
+1525027990 source:/home/habib/Documents/numerical_analysis/Cholrsky/main.c
 	<stdio.h>
 	<stdlib.h>
+	<math.h>
 
