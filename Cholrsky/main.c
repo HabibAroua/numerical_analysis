@@ -62,7 +62,15 @@ void cholesky(int n , float M[100][100])
     {
         for(k=0 ; k<i-1 ; k++)
         {
-             M[i][i]=sqrt(M[i][i]-M[i][k]*M[i][k])
+             M[i][i]=sqrt(M[i][i]-M[i][k]*M[i][k]);
+        }
+        for(j=i+1 ; j<n ; j++)
+        {
+             for(k=0 ; k<i-1 ; k++)
+             {
+                  M[j][i]=(M[j][i]-(M[j][k]*M[i][k]))/M[i][i];
+             }
         }
     }
+    M[n-1][n-1]=sqrt(M[n-1][n-1]-(M[n][k]*M[n][k]));
 }
