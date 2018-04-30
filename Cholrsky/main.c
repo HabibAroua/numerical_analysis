@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 
 void saisie(int *n);
 void remplir(int n , float M[100][100]);
